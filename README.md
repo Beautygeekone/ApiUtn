@@ -1,16 +1,16 @@
-Proyecto de API REST de Mascotas (Mi Primer Backend)
+Proyecto de API REST de Joyas (Mi Primer Backend)
 
-Holaa! Este es mi proyecto para crear una API REST de gestión de mascotas. Es mi primer backend serio usando Node.js, y todavía estoy aprendiendo 💀 
-El objetivo es tener una forma de guardar y consultar datos de mascotas usando una base de datos en la nube (MongoDB Atlas).
+Holaa! Este es mi proyecto para crear una API REST de gestión de un comercio. Es mi primer backend serio usando Node.js, y todavía estoy aprendiendo 💀 
+El objetivo es tener una forma de guardar y consultar datos de productos usando una base de datos en la nube (MongoDB Atlas).
 
 
 
 Lo que Usé (Mi Stack)
 
 Node.js & Express: La base para que el servidor funcione.
-MongoDB Atlas:** Donde guardo los datos.
+MongoDB Atlas: Donde guardo los datos.
 Driver `mongodb`: Lo que uso en el código para hablar con la base de datos.
-`dotenv`:** Súper útil para esconder la contraseña de la base de datos en un archivo secreto (`.env`).
+`dotenv`: Súper útil para esconder la contraseña de la base de datos en un archivo secreto (`.env`).
 Git & GitHub: Para guardar el progreso y no perder mi código.
 
 
