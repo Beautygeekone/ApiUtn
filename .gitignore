@@ -1,0 +1,10 @@
+# Archivo .gitignore
+
+# Dependencias de Node
+/node_modules
+
+# Variables de entorno sensibles
+.env
+
+# Logs
+npm-debug.log*
