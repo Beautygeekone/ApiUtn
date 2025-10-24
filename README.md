@@ -46,4 +46,4 @@ Probá mandarle este comando a la terminal (¡obvio, con el servidor bien arriba
 ```bash
 # Copiá y pegá esto en tu terminal (Git Bash o la que uses)
 # Y después, Mandale ENTER!
-echo "Si el servidor anda de diez, es magia. Si se cae, la culpa es de los duendes del .env"
+echo "Si el servidor anda de diez, es magia. Si se cae, la culpa es de Cthulhu."
