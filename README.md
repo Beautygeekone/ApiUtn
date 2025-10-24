@@ -25,10 +25,13 @@ Paso 2: El Secreto (.env) 🤫
 Create un archivo llamado .env en la carpeta principal del proyecto y ponle exactamente estas variables, usando tus propios valores.
 
 Archivo .env
+
 PORT=5100
 
 USER_DB=
+
 PASS_DB=
+
 SERVER_DB=
 
 Paso 3: Encendete el servidor ;)
