@@ -15,7 +15,7 @@ class DBClient {
             DBClient.client = new MongoClient(queryString);
             await DBClient.client.connect();
             
-            DBClient.db = DBClient.client.db('compras'); 
+            DBClient.db = DBClient.client.db('Compras'); 
             
             console.log("DB connected");
         } catch (e) {

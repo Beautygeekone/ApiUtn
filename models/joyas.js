@@ -1,13 +1,16 @@
-import DBClient from '../ruta/a/dbClient.js'; 
+import DBClient from '../config/dbClient.js';
+import { ObjectId } from 'mongodb';
 
 const joyasModel = {
-    create: (data) => {
+   
+    create: (joya) => {
         const db = DBClient.getDB(); 
         const colJoyas = db.collection('joyas');
         
-        return colJoyas.insertOne(data);
-    }
-    // Implementar acá getAll, getOne, update y delete
+        return colJoyas.insertOne(joya);
+    },
+
+ 
 };
 
 export default joyasModel;
