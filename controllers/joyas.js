@@ -33,7 +33,8 @@ class joyasController {
 
     async getAll (req, res) {
       try {
-        res.status(201).json({status:'getall-ok'});
+         const data = await joyasModel.getAll();
+        res.status(201).json(data);
       } catch (e) {
         res.status(500).send(e);
       } 
