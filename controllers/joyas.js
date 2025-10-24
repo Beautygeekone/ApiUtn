@@ -17,15 +17,20 @@ class joyasController {
 
    async update (req, res) {
        try {
-        res.status(201).json({status:'update-ok'});
+        const { id } = req.params;
+        const data = await joyasModel.update(id, req.body);
+        res.status(200).json(data);
       } catch (e) {
+        console.log(e);
         res.status(500).send(e);
       } 
     }
 
    async delete (req, res) {
       try {
-        res.status(201).json({status:'delete-ok'});
+        const { id } = req.params;
+        const data = await joyasModel.deletete(id, req.body);
+        res.status(206).json(data);
       } catch (e) {
         res.status(500).send(e);
       } 
@@ -43,7 +48,9 @@ class joyasController {
 
     async getOne (req, res) {
      try {
-        res.status(201).json({status:'getone-ok'});
+        const { id } = req.params;
+        const data = await joyasModel.getOne(id);
+        res.status(201).json(data);
       } catch (e) {
         res.status(500).send(e);
       } 
