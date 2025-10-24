@@ -1,13 +1,13 @@
-import mascotasModel from "../models/mascotas.js";
+import joyasModel from "../models/joyas.js";
 
 
-class mascotasController {
+class joyasController {
     constructor() {
     }
 
    async create (req, res) {
       try {
-        const data = mascotasModel.create(req.body);
+        const data = joyasModel.create(req.body);
         res.status(201).json(data);
       } catch (e) {
         res.status(500).send(e);
@@ -54,4 +54,4 @@ class mascotasController {
 
 }
 
-export default new mascotasController();
+export default new joyasController();

@@ -1,9 +1,9 @@
 import 'dotenv/config';
 import express from 'express';
-import routesMascotas from './routes/mascotas.js';
+import routesJoyas from './routes/joyas.js';
 
 const app = express();
-app.use('/mascotas', routesMascotas);
+app.use('/joyas', routesJoyas);
 
 try {
     const PORT = process.env.PORT || 3000;

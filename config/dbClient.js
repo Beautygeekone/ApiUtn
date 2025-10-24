@@ -1,26 +1,35 @@
 import { MongoClient } from 'mongodb';
 
-class dbClient {
-    constructor() {
-        const queryString = `mongodb+srv://${process.env.USER_DB}:${process.env.PASS_DB}${process.env.SERVER_DB}/?appName=ApiUtn`;
-        this.client = new MongoClient(queryString);
-        this.connectBD();
+class DBClient {
+    static client = null;
+    static db = null;
 
-    }    
-
-    async connectBD() {
+    static async connectBD() {
+        if (DBClient.db) {
+            return;
+        }
+        
+        const queryString = `mongodb+srv://${process.env.USER_DB}:${process.env.PASS_DB}@${process.env.SERVER_DB}/?appName=ApiUtn`;
+        
         try {
-            await this.client.connect();
-            this.db = this.client.db ('adopcion');
+            DBClient.client = new MongoClient(queryString);
+            await DBClient.client.connect();
+            
+            DBClient.db = DBClient.client.db('compras'); 
+            
             console.log("DB connected");
         } catch (e) {
-            console.log(e);
-    
+            console.error("Error al conectar a MongoDB:", e);
+            throw e;
         }
-    } 
+    }
 
+    static getDB() {
+        if (!DBClient.db) {
+            throw new Error("Base de datos no inicializada.");
+        }
+        return DBClient.db;
+    }
+}
 
-
-} 
-
-export default new dbClient();
+export default DBClient;
