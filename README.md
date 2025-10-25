@@ -3,7 +3,7 @@ Proyecto de API REST de Joyas (Mi Primer Backend)
 Holaa! Este es mi proyecto para crear una API REST de gestión de un comercio. Es mi primer backend serio usando Node.js, y todavía estoy aprendiendo 💀 
 El objetivo es tener una forma de guardar y consultar datos de productos usando una base de datos en la nube (MongoDB Atlas).
 
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 A) Lo que Usé:
 
@@ -16,7 +16,7 @@ Middleware: CORS (Configuración de permisos de acceso).
 
 Nota: El proyecto utiliza una colección principal para la entidad Joyas (el equivalente a Products).
 
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Colección: joyas 
 
 _id (Tipo ObjectId): Identificador único. (Requisito: Automático)
@@ -34,6 +34,7 @@ createdAt (Tipo Date): Fecha de creación del registro. (Requisito: Automático 
 updatedAt (Tipo Date): Fecha de última modificación. (Requisito: Automático - timestamps)
 
 
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 B) Como ponerlo a correr:
 
 
@@ -60,11 +61,11 @@ Paso 3: Encendete el servidor ;)
 npm run dev
 El servidor se iniciará en http://localhost:5100
 
-
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 C) Herramienta de Prueba: Thunder Client
 Yo uso la extensión Thunder Client de VS Code para mandar estas peticiones y ver si mi API responde bien.
 
-D) Mi listado Completo de Endpoints:
+Mi listado Completo de Endpoints:
 Todas las rutas inician con el prefijo /api/joyas.
 
 POST /api/joyas: Crear una nueva joya. (Responsable: productController.create)
@@ -80,7 +81,8 @@ DELETE /api/joyas/:id: Eliminar una joya por su ID. (Responsable: productControl
 LOGIN /api/users/login: Placeholder. No implementado, pero requerido por la estructura del TP.
 
 
-E) Ejemplos de Datos Mock (JSON)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+D) Ejemplos de Datos Mock (JSON)
 
 Usate estos datos para probar las solicitudes POST o PUT al endpoint /api/joyas.
 
