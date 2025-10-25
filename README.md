@@ -17,7 +17,7 @@ Middleware: CORS (Configuración de permisos de acceso).
 Nota: El proyecto utiliza una colección principal para la entidad Joyas (el equivalente a Products).
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-### Colección: joyas 
+### Colección: joyas 💍💍💍
 
 _id (Tipo ObjectId): Identificador único. (Requisito: Automático)
 
