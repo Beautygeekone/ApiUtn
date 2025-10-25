@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
 import DBClient from './config/dbClient.js';
-import routesJoyas from './routes/joyas.js';
+import routesJoyas from './routes/productRoute.js';
 
 const app = express();
 
@@ -14,7 +14,8 @@ async function startServer() {
         
         const PORT = process.env.PORT || 3000;
         
-        app.use('/joyas', routesJoyas);
+        app.use('/api/joyas', routesJoyas);
+
 
         app.listen(PORT, () => console.log('Server running on port', PORT));
         
