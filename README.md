@@ -5,17 +5,39 @@ El objetivo es tener una forma de guardar y consultar datos de productos usando 
 
 
 
-Lo que Usé (Mi Stack)
+A) Lo que Usé:
 
 Node.js & Express: La base para que el servidor funcione.
 MongoDB Atlas: Donde guardo los datos.
 Driver `mongodb`: Lo que uso en el código para hablar con la base de datos.
 `dotenv`: Súper útil para esconder la contraseña de la base de datos en un archivo secreto (`.env`).
 Git & GitHub: Para guardar el progreso y no perder mi código.
+Middleware: CORS (Configuración de permisos de acceso).
+
+Nota: El proyecto utiliza una colección principal para la entidad Joyas (el equivalente a Products).
 
 
+Colección: joyas 
 
-Como ponerlo a correr:
+_id (Tipo ObjectId): Identificador único. (Requisito: Automático)
+
+nombre (Tipo String): Nombre de la joya (ej: 'Anillo de Zafiro'). (Requisito: Requerido)
+
+material (Tipo String): Material de la joya (ej: 'Oro Blanco 18k'). (Requisito: Requerido)
+
+medidas (Tipo String): Talla o medidas (ej: 'Talla 7', '45cm'). (Requisito: Requerido)
+
+precio (Tipo Number): Precio unitario. (Requisito: Requerido, Mínimo 0)
+
+createdAt (Tipo Date): Fecha de creación del registro. (Requisito: Automático - timestamps)
+
+updatedAt (Tipo Date): Fecha de última modificación. (Requisito: Automático - timestamps)
+
+
+B) Como ponerlo a correr:
+
+
+Primero fijate de tener instalado Node.js (versión 18 o superior) y el acceso a una base de datos MongoDB.
 
 Paso 0: Instalate Node.js 
 
@@ -36,9 +58,53 @@ SERVER_DB=
 
 Paso 3: Encendete el servidor ;)
 npm run dev
+El servidor se iniciará en http://localhost:5100
 
-Herramienta de Prueba: Thunder Client
+
+C) Herramienta de Prueba: Thunder Client
 Yo uso la extensión Thunder Client de VS Code para mandar estas peticiones y ver si mi API responde bien.
+
+D) Mi listado Completo de Endpoints:
+Todas las rutas inician con el prefijo /api/joyas.
+
+POST /api/joyas: Crear una nueva joya. (Responsable: productController.create)
+
+GET /api/joyas: Leer todas las joyas. (Responsable: productController.getAll)
+
+GET /api/joyas/:id: Leer una joya por su ID. (Responsable: productController.getOne)
+
+PUT /api/joyas/:id: Actualizar una joya por su ID. (Responsable: productController.update)
+
+DELETE /api/joyas/:id: Eliminar una joya por su ID. (Responsable: productController.delete)
+
+LOGIN /api/users/login: Placeholder. No implementado, pero requerido por la estructura del TP.
+
+
+E) Ejemplos de Datos Mock (JSON)
+
+Usate estos datos para probar las solicitudes POST o PUT al endpoint /api/joyas.
+
+Ejemplo 1: Anillo de Zafiro
+
+{
+  "nombre": "Anillo de Zafiro Celestial",
+  "material": "Plata Esterlina S925",
+  "medidas": "Talla 8",
+  "precio": 89.99
+}
+
+
+Ejemplo 2: Collar de Perlas
+
+{
+  "nombre": "Collar Clásico de Perlas",
+  "material": "Perlas de Agua Dulce y Seda",
+  "medidas": "45 cm de longitud",
+  "precio": 149.50
+}
+
+
+
 
 PS: El Codiguito Secreto de la Consola
 
