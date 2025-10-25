@@ -5,17 +5,19 @@ El objetivo es tener una forma de guardar y consultar datos de productos usando 
 
 
 
-Lo que Usé (Mi Stack)
+A) Lo que Usé:
 
 Node.js & Express: La base para que el servidor funcione.
 MongoDB Atlas: Donde guardo los datos.
 Driver `mongodb`: Lo que uso en el código para hablar con la base de datos.
 `dotenv`: Súper útil para esconder la contraseña de la base de datos en un archivo secreto (`.env`).
 Git & GitHub: Para guardar el progreso y no perder mi código.
+Middleware: CORS (Configuración de permisos de acceso).
+
+Nota: El proyecto utiliza una colección principal para la entidad Joyas (el equivalente a Products).
 
 
-
-Como ponerlo a correr:
+B) Como ponerlo a correr:
 
 Paso 0: Instalate Node.js 
 
@@ -37,8 +39,12 @@ SERVER_DB=
 Paso 3: Encendete el servidor ;)
 npm run dev
 
-Herramienta de Prueba: Thunder Client
+C) Herramienta de Prueba: Thunder Client
 Yo uso la extensión Thunder Client de VS Code para mandar estas peticiones y ver si mi API responde bien.
+
+
+
+
 
 PS: El Codiguito Secreto de la Consola
 
