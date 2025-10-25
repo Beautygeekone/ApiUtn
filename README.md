@@ -68,7 +68,7 @@ Yo uso la extensión Thunder Client de VS Code para mandar estas peticiones y ve
 Mi listado Completo de Endpoints:
 Todas las rutas inician con el prefijo /api/joyas.
 
-** POST /api/joyas: Crear una nueva joya. (Responsable: productController.create) **
+_POST /api/joyas: Crear una nueva joya. (Responsable: productController.create)_
 
 ** GET /api/joyas: Leer todas las joyas. (Responsable: productController.getAll) **
 
