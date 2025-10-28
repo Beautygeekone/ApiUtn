@@ -8,10 +8,15 @@ El objetivo es tener una forma de guardar y consultar datos de productos usando 
 ### A) Lo que Usé:
 
 Node.js & Express: La base para que el servidor funcione.
+
 MongoDB Atlas: Donde guardo los datos.
+
 Driver `mongodb`: Lo que uso en el código para hablar con la base de datos.
+
 `dotenv`: Súper útil para esconder la contraseña de la base de datos en un archivo secreto (`.env`).
+
 Git & GitHub: Para guardar el progreso y no perder mi código.
+
 Middleware: CORS (Configuración de permisos de acceso).
 
 Nota: El proyecto utiliza una colección principal para la entidad Joyas (el equivalente a Products).
