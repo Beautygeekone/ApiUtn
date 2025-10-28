@@ -1,11 +1,11 @@
-### Proyecto de API REST de Joyas (Mi Primer Backend)
+# Proyecto de API REST de Joyas (Mi Primer Backend)
 
 Holaa! Este es mi proyecto para crear una API REST de gestión de un comercio. Es mi primer backend serio usando Node.js, y todavía estoy aprendiendo 💀 
 El objetivo es tener una forma de guardar y consultar datos de productos usando una base de datos en la nube (MongoDB Atlas).
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## A) Lo que Usé:
+### A) Lo que Usé:
 
 Node.js & Express: La base para que el servidor funcione.
 MongoDB Atlas: Donde guardo los datos.
@@ -17,7 +17,7 @@ Middleware: CORS (Configuración de permisos de acceso).
 Nota: El proyecto utiliza una colección principal para la entidad Joyas (el equivalente a Products).
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## Colección: joyas 💍💍💍
+### Colección: joyas 💍💍💍
 
 _id (Tipo ObjectId): Identificador único. (Requisito: Automático)
 
@@ -35,7 +35,7 @@ updatedAt (Tipo Date): Fecha de última modificación. (Requisito: Automático -
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## B) Como ponerlo a correr:
+### B) Como ponerlo a correr:
 
 
 Primero fijate de tener instalado Node.js (versión 18 o superior) y el acceso a una base de datos MongoDB.
@@ -62,7 +62,7 @@ npm run dev
 El servidor se iniciará en http://localhost:5100
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-## C) Herramienta de Prueba: Thunder Client
+### C) Herramienta de Prueba: Thunder Client
 Yo uso la extensión Thunder Client de VS Code para mandar estas peticiones y ver si mi API responde bien.
 
 Mi listado Completo de Endpoints:
