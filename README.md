@@ -72,13 +72,16 @@ Yo uso **Thunder Client** para mandar peticiones y ver si mi API realmente anda.
 
 Usá estos ejemplos para probar el **POST** o **PUT** al *endpoint* `/api/joyas`.
 
-| Ejemplo 1: Anillo de Zafiro | Ejemplo 2: Collar de Perlas |
-| :--- | :--- |
+| Ejemplo 1: Anillo de Zafiro:
 
 | ```json { "nombre": "Anillo de Zafiro Celestial", 
             "material": "Plata Esterlina S925", 
             "medidas": "Talla 8", 
             "precio": 89.99 } ``` |
+
+
+| Ejemplo 2: Collar de Perlas:
+
 | ```json { "nombre": "Collar Clásico de Perlas", 
             "material": "Perlas de Agua Dulce y Seda", 
             "medidas": "45 cm de longitud", 
