@@ -1,124 +1,93 @@
-# Proyecto de API REST de Joyas (Mi Primer Backend)
+## Proyecto de API REST de Joyas ✨
 
-Holaa! Este es mi proyecto para crear una API REST de gestión de un comercio. Es mi primer backend serio usando Node.js, y todavía estoy aprendiendo 💀 
-El objetivo es tener una forma de guardar y consultar datos de productos usando una base de datos en la nube (MongoDB Atlas).
+Hola gente! Este es mi proyecto para la UTN, una API pensada para manejar el inventario de una joyería. Es mi primer intento serio creando un backend 💀 y la verdad es que no fue facil. El objetivo era aplicar todo lo que aprendimos para crear un sistema que pueda guardar, consultar y modificar datos de productos usando **MongoDB Atlas**.
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### A) Mi Stack:
 
-### A) Lo que Usé:
+* **Node.js & Express:**  Hacen que la API se levante y pueda recibir peticiones.
+* **MongoDB Atlas (Mongoose):** Acá guardo las joyas.
+* **`dotenv`:**  Es para guardar las contraseñas y la conexión de la base de datos en un archivo secreto (`.env`) que no se ve.
+* **Git & GitHub:** Es para ir guardando el progreso y no perder los datos.
+* **`cors`:** Lo tuve que habilitar para que, cuando haga la aplicación *frontend* porque lo tenía pensado pero no llegué con el tiempo, el navegador no me dé problemas de acceso.
 
-Node.js & Express: La base para que el servidor funcione.
+---
 
-MongoDB Atlas: Donde guardo los datos.
+### B) La Colección Joyas
 
-Driver `mongodb`: Lo que uso en el código para hablar con la base de datos.
+Así organicé la información de cada joya en la base de datos. 
 
-`dotenv`: Súper útil para esconder la contraseña de la base de datos en un archivo secreto (`.env`).
+| Campo | Tipo | Requisito | Descripción |
+| :--- | :--- | :--- | :--- |
+| `_id` | `ObjectId` | Automático | El ID único que MongoDB le pone a cada joya. |
+| `nombre` | `String` | Requerido | El nombre que le da la vendedora (ej: 'Anillo de Zafiro'). |
+| `material` | `String` | Requerido | De qué está hecha (ej: 'Oro Blanco 18k'). |
+| `medidas` | `String` | Requerido | Tamaño, longitud, etc. (ej: 'Talla 7', '45cm'). |
+| `precio` | `Number` | Requerido, Mín. 0 | Lo que vale. |
+| `createdAt` | `Date` | Automático | La fecha en que se creó el registro. |
+| `updatedAt` | `Date` | Automático | La fecha de la última vez que la edité. |
 
-Git & GitHub: Para guardar el progreso y no perder mi código.
+---
 
-Middleware: CORS (Configuración de permisos de acceso).
+### C) Cómo Poner Esto a funcionar:
 
-Nota: El proyecto utiliza una colección principal para la entidad Joyas (el equivalente a Products).
+Si querés probar mi API solo necesitás **Node.js (v18+)** y tener acceso a tu base de datos **MongoDB Atlas**.
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-### Colección: joyas 💍💍💍
+1.  **Bajate el Código:** Cloná este repositorio.
+    ```bash
+    git clone [https://github.com/Beautygeekone/ApiUtn.git](https://github.com/Beautygeekone/ApiUtn.git)
+    cd ApiUtn
+    ```
+2.  **Instalate las Dependencias:**
+    ```bash
+    npm install
+    ```
+3.  **El Secreto (`.env`) 🤫:** Create un archivo llamado `.env` en la carpeta principal pero remplazá el texto con tus propios datos de conexión:
+    ```
+    PORT=5100
+    USER_DB=tu_usuario_de_mongo
+    PASS_DB=tu_contrasena_de_mongo
+    SERVER_DB=tu_cluster_de_mongo_atlas
+    ```
+4.  **Encendete el Servidor:** ¡Ya casi!
+    ```bash
+    npm run dev
+    ```
+    El servidor va a iniciar en `http://localhost:5100`.
 
-_id (Tipo ObjectId): Identificador único. (Requisito: Automático)
+---
 
-nombre (Tipo String): Nombre de la joya (ej: 'Anillo de Zafiro'). (Requisito: Requerido)
+### D) Listado de rutas CRUD.
 
-material (Tipo String): Material de la joya (ej: 'Oro Blanco 18k'). (Requisito: Requerido)
+Yo uso **Thunder Client** para mandar peticiones y ver si mi API realmente anda. Todas las rutas empiezan con `/api/joyas`.
 
-medidas (Tipo String): Talla o medidas (ej: 'Talla 7', '45cm'). (Requisito: Requerido)
+| Método | Ruta | Función |
+| :--- | :--- | :--- |
+| **POST** | `/api/joyas` | **Crear** una nueva joya para cargar al inventario. |
+| **GET** | `/api/joyas` | **Leer** todas las joyas que tengo. |
+| **GET** | `/api/joyas/:id` | **Leer** una joya específica por su ID. |
+| **PUT** | `/api/joyas/:id` | **Actualizar** los datos de una joya que ya existe. |
+| **DELETE** | `/api/joyas/:id` | **Eliminar** una joya. |
 
-precio (Tipo Number): Precio unitario. (Requisito: Requerido, Mínimo 0)
+### E) Ejemplos de Datos Mock (JSON)
 
-createdAt (Tipo Date): Fecha de creación del registro. (Requisito: Automático - timestamps)
+Usá estos ejemplos para probar el **POST** o **PUT** al *endpoint* `/api/joyas`.
 
-updatedAt (Tipo Date): Fecha de última modificación. (Requisito: Automático - timestamps)
+| Ejemplo 1: Anillo de Zafiro | Ejemplo 2: Collar de Perlas |
+| :--- | :--- |
 
+| ```json { "nombre": "Anillo de Zafiro Celestial", 
+            "material": "Plata Esterlina S925", 
+            "medidas": "Talla 8", 
+            "precio": 89.99 } ``` |
+| ```json { "nombre": "Collar Clásico de Perlas", 
+            "material": "Perlas de Agua Dulce y Seda", 
+            "medidas": "45 cm de longitud", 
+            "precio": 149.50 } ``` |
 
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-### B) Como ponerlo a correr:
+---
 
+### PS: Un extra...
 
-Primero fijate de tener instalado Node.js (versión 18 o superior) y el acceso a una base de datos MongoDB.
+Si llegaste hasta acá te lo agradezco porque es un monón!
 
-Paso 0: Instalate Node.js 
-
-Paso 1: Bajate el Código y clona el proyecto:
-
-Paso 2: El Secreto (.env) 🤫
-Create un archivo llamado .env en la carpeta principal del proyecto y ponle exactamente estas variables, usando tus propios valores.
-
-Archivo .env
-
-PORT=5100
-
-USER_DB=
-
-PASS_DB=
-
-SERVER_DB=
-
-Paso 3: Encendete el servidor ;)
-npm run dev
-El servidor se iniciará en http://localhost:5100
-
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-### C) Herramienta de Prueba: Thunder Client
-Yo uso la extensión Thunder Client de VS Code para mandar estas peticiones y ver si mi API responde bien.
-
-Mi listado Completo de Endpoints:
-Todas las rutas inician con el prefijo /api/joyas.
-
-**POST /api/joyas: Crear una nueva joya. (Responsable: productController.create)**
-
-**GET /api/joyas: Leer todas las joyas. (Responsable: productController.getAll)**
-
-**GET /api/joyas/:id: Leer una joya por su ID. (Responsable: productController.getOne)**
-
-**PUT /api/joyas/:id: Actualizar una joya por su ID. (Responsable: productController.update)**
-
-**DELETE /api/joyas/:id: Eliminar una joya por su ID. (Responsable: productController.delete)**
-
-
-
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-### D) Ejemplos de Datos Mock (JSON)
-
-Usate estos datos para probar las solicitudes POST o PUT al endpoint /api/joyas.
-
-Ejemplo 1: Anillo de Zafiro
-
-{
-  "nombre": "Anillo de Zafiro Celestial",
-  "material": "Plata Esterlina S925",
-  "medidas": "Talla 8",
-  "precio": 89.99
-}
-
-
-Ejemplo 2: Collar de Perlas
-
-{
-  "nombre": "Collar Clásico de Perlas",
-  "material": "Perlas de Agua Dulce y Seda",
-  "medidas": "45 cm de longitud",
-  "precio": 149.50
-}
-
-
-
-_____________________________________________________________________________________________________________________________________________________________________________
-### PS: El Codiguito Secreto de la Consola
-
-Si llegaste hasta acá...Te ganaste un secretito.
-
-Probá mandarle este comando a la terminal (¡obvio, con el servidor bien arriba!) para que te acuerdes por qué elegiste meterte en programación:
-
-```bash
-# Copiá y pegá esto en tu terminal (Git Bash o la que uses)
-# Y después, Mandale ENTER!
-echo "Si el servidor anda de diez, es magia. Si se cae, la culpa es de Cthulhu."
+> "Si el servidor anda de diez, es magia. Si se cae, la culpa es de Cthulhu o mia, who knows?
