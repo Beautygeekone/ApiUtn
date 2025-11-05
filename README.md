@@ -88,7 +88,14 @@ Usá estos ejemplos para probar el **POST** o **PUT** al *endpoint* `/api/joyas`
             "precio": 149.50 } ``` |
 
 ---
-
+### F) Esquema de la Base de Datos
+Joya
+Campo	Tipo	Descripción
+nombre	String	Nombre del producto
+material	String	Material principal
+medidas	String	Tamaño o dimensiones
+precio	Number	Valor del producto
+category	ObjectId (ref: Category)	Categoría a la que pertenece
 ### PS: Un extra...
 
 Si llegaste hasta acá te lo agradezco porque es un monón!
