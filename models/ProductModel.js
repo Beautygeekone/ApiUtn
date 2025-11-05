@@ -1,36 +1,25 @@
-import DBClient from '../config/dbClient.js';
-import { ObjectId } from 'mongodb';
+import Joyas from '../schemas/Product.js';
 
 const joyasModel = {
   async create(joya) {
-    const db = DBClient.getDB();
-    const colJoyas = db.collection('joyas');
-    return await colJoyas.insertOne(joya);
+    return await Joyas.create(joya);
   },
 
   async update(id, joya) {
-    const db = DBClient.getDB(); // ✅ agregado
-    const colJoyas = db.collection('joyas');
-    return await colJoyas.updateOne({ _id: new ObjectId(id) }, { $set: joya });
+    return await Joyas.findOneAndUpdate(id, joya, { new: true });
   },
 
   async getAll() {
-    const db = DBClient.getDB();
-    const colJoyas = db.collection('joyas');
-    return await colJoyas.find({}).toArray();
+   return await Joyas.find();
   },
 
   async delete(id) {
-    const db = DBClient.getDB();
-    const colJoyas = db.collection('joyas');
-    return await colJoyas.deleteOne({ _id: new ObjectId(id) });
+    return await Joyas.findOneAndDelete(id);
   },
 
   async getOne(id) {
-    const db = DBClient.getDB();
-    const colJoyas = db.collection('joyas');
-    return await colJoyas.findOne({ _id: new ObjectId(id) });
-  }
+    return await Joyas.findById(id);
+  },
 };
 
 export default joyasModel;

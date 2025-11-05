@@ -1,36 +1,48 @@
-import { MongoClient } from 'mongodb';
+import mongoose from 'mongoose';
 
 class DBClient {
-    static client = null;
-    static db = null;
+    static isConnected = false; 
 
-    static async connectBD() {
-        if (DBClient.db) {
+    static async connectDB() {
+        if (DBClient.isConnected && mongoose.connection.readyState === 1) {
             return;
         }
-        
-        const queryString = `mongodb+srv://${process.env.USER_DB}:${process.env.PASS_DB}@${process.env.SERVER_DB}/?appName=ApiUtn`;
+
+        const connectionString = `mongodb+srv://beautygeekone:Arigato1324@apiutn.rvqc74d.mongodb.net/?appName=ApiUtn`;
         
         try {
-            DBClient.client = new MongoClient(queryString);
-            await DBClient.client.connect();
+            await mongoose.connect(connectionString, {
+                dbName: 'Compras',
+            });
             
-            DBClient.db = DBClient.client.db('Compras'); 
-            
-            console.log("DB connected");
+            DBClient.isConnected = true;
+            console.log("DB connected with Mongoose");
+
+            mongoose.connection.on('error', err => {
+                console.error('Mongoose connection error:', err);
+            });
+
         } catch (e) {
-            console.error("Error al conectar a MongoDB:", e);
-            throw e;
+            console.error("Error al conectar a MongoDB con Mongoose:", e);
+            DBClient.isConnected = false;
+            throw e; 
         }
     }
 
     static getDB() {
-        if (!DBClient.db) {
-            throw new Error("Base de datos no inicializada.");
+        if (mongoose.connection.readyState !== 1) {
+             throw new Error("Base de datos no inicializada/conectada.");
         }
-        return DBClient.db;
+        return mongoose.connection.db; 
+    }
+    
+    static async disconnectDB() {
+        if (DBClient.isConnected) {
+            await mongoose.disconnect();
+            DBClient.isConnected = false;
+            console.log("DB disconnected");
+        }
     }
 }
-
 
 export default DBClient;
