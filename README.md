@@ -1,11 +1,11 @@
 ## Proyecto de API REST de Joyas ✨
 
-Hola gente! Este es mi proyecto para la UTN, una API pensada para manejar el inventario de una joyería. Es mi primer intento serio creando un backend 💀 y la verdad es que no fue facil. El objetivo era aplicar todo lo que aprendimos para crear un sistema que pueda guardar, consultar y modificar datos de productos usando **MongoDB Atlas**.
+Hola gente! Este es mi proyecto para la UTN, una API pensada para manejar el inventario de una joyería. Es mi primer intento serio creando un backend 💀 y la verdad es que no fue facil. El objetivo era aplicar todo lo que aprendimos para crear un sistema que pueda guardar, consultar y modificar datos de productos usando **MongoDB**.
 
 ### A) Mi Stack:
 
 * **Node.js & Express:**  Hacen que la API se levante y pueda recibir peticiones.
-* **MongoDB Atlas (Mongoose):** Acá guardo las joyas.
+* **MongoDB Atlas/Mongoose:** Acá guardo las joyas.
 * **`dotenv`:**  Es para guardar las contraseñas y la conexión de la base de datos en un archivo secreto (`.env`) que no se ve.
 * **Git & GitHub:** Es para ir guardando el progreso y no perder los datos.
 * **`cors`:** Lo tuve que habilitar para que, cuando haga la aplicación *frontend* porque lo tenía pensado pero no llegué con el tiempo, el navegador no me dé problemas de acceso.
@@ -45,12 +45,12 @@ Si querés probar mi API solo necesitás **Node.js (v18+)** y tener acceso a tu 
     ```
     PORT=5100
     USER_DB=tu_usuario_de_mongo
-    PASS_DB=tu_contrasena_de_mongo
+    PASS_DB=tu_contraseña_de_mongo
     SERVER_DB=tu_cluster_de_mongo_atlas
     ```
 4.  **Encendete el Servidor:** ¡Ya casi!
     ```bash
-    npm run dev
+    npm run dev (en mi caso lo inicio con node app.js)
     ```
     El servidor va a iniciar en `http://localhost:5100`.
 
@@ -96,6 +96,7 @@ material	String	Material principal
 medidas	String	Tamaño o dimensiones
 precio	Number	Valor del producto
 category	ObjectId (ref: Category)	Categoría a la que pertenece
+_________________________________________________________________________________________________________________________________________________
 ### PS: Un extra...
 
 Si llegaste hasta acá te lo agradezco porque es un monón!
