@@ -92,10 +92,10 @@ Usá estos ejemplos para probar el **POST** o **PUT** al *endpoint* `/api/joyas`
 Joya
 ### Campo	Tipo	Descripción
 nombre:	    String	Nombre del producto
-material	String	Material principal
-medidas	    String	Tamaño o dimensiones
-precio	    Number	Valor del producto
-category	ObjectId Categoría a la que pertenece
+material:	String	Material principal
+medidas:	String	Tamaño o dimensiones
+precio:     Number	Valor del producto
+category:	ObjectId Categoría a la que pertenece
 _________________________________________________________________________________________________________________________________________________
 ### PS: Un extra...
 
